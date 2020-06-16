@@ -199,25 +199,25 @@
 #X msg 723 283 read -resize sounds/hanning.wav hann;
 #X msg 733 320 read -resize sounds/hanning.wav crown;
 #X obj 757 474 hsl 195 8 0 1 0 0 empty 0-loc empty -2 -8 0 10 -262144
--1 -1 6751 1;
+-1 -1 8335 1;
 #X obj 757 482 hsl 195 8 0 1 0 0 empty 1-loc empty -2 -8 0 10 -262144
--1 -1 13192 1;
+-1 -1 11036 1;
 #X obj 757 490 hsl 195 8 0 1 0 0 empty 2-loc empty -2 -8 0 10 -262144
--1 -1 12887 1;
+-1 -1 10250 1;
 #X obj 757 498 hsl 195 8 0 1 0 0 empty 3-loc empty -2 -8 0 10 -262144
--1 -1 8184 1;
+-1 -1 7917 1;
 #X obj 757 506 hsl 195 8 0 1 0 0 empty 4-loc empty -2 -8 0 10 -262144
--1 -1 7347 1;
+-1 -1 5305 1;
 #X obj 757 514 hsl 195 8 0 1 0 0 empty 5-loc empty -2 -8 0 10 -262144
--1 -1 14954 1;
+-1 -1 9185 1;
 #X obj 757 522 hsl 195 8 0 1 0 0 empty 6-loc empty -2 -8 0 10 -262144
--1 -1 11341 1;
+-1 -1 13850 1;
 #X obj 757 530 hsl 195 8 0 1 0 0 empty 7-loc empty -2 -8 0 10 -262144
--1 -1 9502 1;
+-1 -1 10478 1;
 #X obj 757 538 hsl 195 8 0 1 0 0 empty 8-loc empty -2 -8 0 10 -262144
--1 -1 9477 1;
+-1 -1 12900 1;
 #X obj 757 546 hsl 195 8 0 1 0 0 empty 9-loc empty -2 -8 0 10 -262144
--1 -1 4038 1;
+-1 -1 5242 1;
 #X text 767 453 grain location visualizer;
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
@@ -248,7 +248,7 @@
 #X connect 44 0 28 0;
 #X restore 26 654 pd windows;
 #X obj 23 217 hsl 195 15 0 1 0 0 sample_offset sample_offset_rcv sample_offset
--2 -8 0 10 -262144 -1 -1 9946 1;
+-2 -8 0 10 -262144 -1 -1 9938 1;
 #X obj 23 281 hsl 128 15 0 1 0 1 offset_random offset_random_rcv offset_random
 -2 -8 0 10 -262144 -1 -1 8300 1;
 #X obj 26 424 hsl 128 15 0.001 1 0 1 grain_size grain_size_rcv grain_size
@@ -806,7 +806,7 @@ in 17 \, in 18 \, in 19 \, in 20 \, in 21 \, in 22 \, in 23 \, in 24
 1;
 #X obj 79 193 serial_print any;
 #X obj 277 342 change;
-#X obj 278 385 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 278 385 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 52 466 / 1024;
 #X obj 246 25 r dsp_on_bang;
@@ -817,7 +817,6 @@ in 17 \, in 18 \, in 19 \, in 20 \, in 21 \, in 22 \, in 23 \, in 24
 #X obj 136 482 / 1024;
 #X obj 167 365 / 1024;
 #X obj 223 362 / 1024;
-#X obj 94 549 print;
 #X obj 101 4 loadbang;
 #X obj 72 629 s random_pitch_rcv;
 #X obj 136 503 s offset_random_rcv;
@@ -854,25 +853,31 @@ in 17 \, in 18 \, in 19 \, in 20 \, in 21 \, in 22 \, in 23 \, in 24
 #X connect 18 0 1 0;
 #X connect 18 1 1 1;
 #X connect 19 0 20 0;
-#X connect 20 0 38 0;
-#X connect 21 0 30 0;
-#X connect 21 0 32 0;
+#X connect 20 0 37 0;
+#X connect 21 0 31 0;
 #X connect 22 0 23 0;
 #X connect 23 0 17 0;
 #X connect 24 0 17 0;
 #X connect 26 0 18 0;
-#X connect 27 0 33 0;
-#X connect 28 0 34 0;
-#X connect 29 0 35 0;
+#X connect 27 0 32 0;
+#X connect 28 0 33 0;
+#X connect 29 0 34 0;
+#X connect 37 0 38 0;
 #X connect 38 0 39 0;
-#X connect 39 0 40 0;
-#X connect 40 0 36 0;
+#X connect 39 0 35 0;
 #X restore 447 178 pd serial;
 #X obj 242 157 nbx 5 14 -1e+37 1e+37 0 1 sample_seconds sample_seconds_rcv
 sample_seconds 0 -8 0 10 -262144 -1 -1 5 256;
+#X obj 262 611 samplerate~;
+#X obj 255 582 loadbang;
+#X obj 262 632 s samplerate;
+#X obj 315 653 print samplerate;
 #X connect 38 0 37 0;
 #X connect 39 0 45 0;
 #X connect 40 0 42 0;
 #X connect 45 0 38 0;
 #X connect 46 0 47 0;
 #X connect 46 0 48 0;
+#X connect 51 0 53 0;
+#X connect 51 0 54 0;
+#X connect 52 0 51 0;
